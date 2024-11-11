@@ -1,0 +1,282 @@
+[
+  {
+    "hotel_id": "h001",
+    "slug": "seaside-haven",
+    "images": [
+      "https://example.com/hotel1/image1.jpg",
+      "https://example.com/hotel1/image2.jpg"
+    ],
+    "title": "Seaside Haven",
+    "description": "A beautiful beachfront hotel with stunning views and modern amenities.",
+    "guest_count": 6,
+    "bedroom_count": 3,
+    "bathroom_count": 2,
+    "amenities": [
+      "Free WiFi",
+      "Pool",
+      "Air Conditioning",
+      "Breakfast Included"
+    ],
+    "host_information": {
+      "name": "John Doe",
+      "contact": "+123456789",
+      "email": "john@example.com"
+    },
+    "address": "123 Ocean Drive, Miami Beach, FL",
+    "latitude": 25.790654,
+    "longitude": -80.1300455,
+    "rooms": [
+      {
+        "hotel_slug": "seaside-haven",
+        "room_slug": "ocean-view-suite",
+        "room_image": "https://example.com/hotel1/room1.jpg",
+        "room_title": "Ocean View Suite",
+        "bedroom_count": 1
+      },
+      {
+        "hotel_slug": "seaside-haven",
+        "room_slug": "garden-view-room",
+        "room_image": "https://example.com/hotel1/room2.jpg",
+        "room_title": "Garden View Room",
+        "bedroom_count": 1
+      }
+    ]
+  },
+  {
+    "hotel_id": "h002",
+    "slug": "mountain-retreat",
+    "images": [
+      "https://example.com/hotel2/image1.jpg",
+      "https://example.com/hotel2/image2.jpg"
+    ],
+    "title": "Mountain Retreat",
+    "description": "Escape to tranquility with breathtaking mountain views and cozy accommodations.",
+    "guest_count": 6,
+    "bedroom_count": 3,
+    "bathroom_count": 2,
+    "amenities": [
+      "Free WiFi",
+      "Hot Tub",
+      "Fireplace",
+      "Pets Allowed"
+    ],
+    "host_information": {
+      "name": "Emily Green",
+      "contact": "+987654321",
+      "email": "emily@example.com"
+    },
+    "address": "456 Mountain Lane, Aspen, CO",
+    "latitude": 39.1911,
+    "longitude": -106.8175,
+    "rooms": [
+      {
+        "hotel_slug": "mountain-retreat",
+        "room_slug": "deluxe-cabin",
+        "room_image": "https://example.com/hotel2/room1.jpg",
+        "room_title": "Deluxe Cabin",
+        "bedroom_count": 2
+      },
+      {
+        "hotel_slug": "mountain-retreat",
+        "room_slug": "standard-room",
+        "room_image": "https://example.com/hotel2/room2.jpg",
+        "room_title": "Standard Room",
+        "bedroom_count": 1
+      }
+    ]
+  },
+  {
+    "hotel_id": "h003",
+    "slug": "urban-oasis",
+    "images": [
+      "https://example.com/hotel3/image1.jpg",
+      "https://example.com/hotel3/image2.jpg"
+    ],
+    "title": "Urban Oasis",
+    "description": "A luxurious hotel in the heart of the city, offering modern amenities and stylish rooms.",
+    "guest_count": 2,
+    "bedroom_count": 1,
+    "bathroom_count": 1,
+    "amenities": [
+      "Free WiFi",
+      "Gym",
+      "Rooftop Bar",
+      "24/7 Room Service"
+    ],
+    "host_information": {
+      "name": "Michael Chen",
+      "contact": "+192837465",
+      "email": "michael@example.com"
+    },
+    "address": "789 City Street, New York, NY",
+    "latitude": 40.7128,
+    "longitude": -74.006,
+    "rooms": [
+      {
+        "hotel_slug": "urban-oasis",
+        "room_slug": "executive-suite",
+        "room_image": "https://example.com/hotel3/room1.jpg",
+        "room_title": "Executive Suite",
+        "bedroom_count": 1
+      },
+      {
+        "hotel_slug": "urban-oasis",
+        "room_slug": "classic-room",
+        "room_image": "https://example.com/hotel3/room2.jpg",
+        "room_title": "Classic Room",
+        "bedroom_count": 1
+      }
+    ]
+  },
+  {
+    "hotel_id": "h004",
+    "slug": "desert-escape",
+    "images": [
+      "https://example.com/hotel4/image1.jpg",
+      "https://example.com/hotel4/image2.jpg"
+    ],
+    "title": "Desert Escape",
+    "description": "An oasis in the desert with unique architecture and serene landscapes.",
+    "guest_count": 3,
+    "bedroom_count": 1,
+    "bathroom_count": 1,
+    "amenities": [
+      "Pool",
+      "Free Parking",
+      "Spa",
+      "Complimentary Breakfast"
+    ],
+    "host_information": {
+      "name": "Samantha Blake",
+      "contact": "+654321789",
+      "email": "samantha@example.com"
+    },
+    "address": "101 Sand Dunes Road, Phoenix, AZ",
+    "latitude": 33.4484,
+    "longitude": -112.074,
+    "rooms": [
+      {
+        "hotel_slug": "desert-escape",
+        "room_slug": "desert-suite",
+        "room_image": "https://example.com/hotel4/room1.jpg",
+        "room_title": "Desert Suite",
+        "bedroom_count": 1
+      }
+    ]
+  },
+  {
+    "hotel_id": "h005",
+    "slug": "lakeside-inn",
+    "images": [
+      "https://example.com/hotel5/image1.jpg",
+      "https://example.com/hotel5/image2.jpg"
+    ],
+    "title": "Lakeside Inn",
+    "description": "A quaint inn by the lake, perfect for a peaceful getaway.",
+    "guest_count": 2,
+    "bedroom_count": 1,
+    "bathroom_count": 1,
+    "amenities": [
+      "Lake View",
+      "Free WiFi",
+      "Breakfast Available",
+      "Fire Pit"
+    ],
+    "host_information": {
+      "name": "Robert Stone",
+      "contact": "+321456987",
+      "email": "robert@example.com"
+    },
+    "address": "222 Lake Drive, Lake Tahoe, CA",
+    "latitude": 39.0968,
+    "longitude": -120.0324,
+    "rooms": [
+      {
+        "hotel_slug": "lakeside-inn",
+        "room_slug": "lake-view-room",
+        "room_image": "https://example.com/hotel5/room1.jpg",
+        "room_title": "Lake View Room",
+        "bedroom_count": 1
+      }
+    ]
+  },
+  {
+    "hotel_id": "h006",
+    "slug": "forest-hideaway",
+    "images": [
+      "https://example.com/hotel6/image1.jpg",
+      "https://example.com/hotel6/image2.jpg"
+    ],
+    "title": "Forest Hideaway",
+    "description": "Nestled in a lush forest, this retreat offers peace and adventure alike.",
+    "guest_count": 4,
+    "bedroom_count": 2,
+    "bathroom_count": 1,
+    "amenities": [
+      "Hiking Trails",
+      "Free Breakfast",
+      "Pet Friendly",
+      "Campfire Area"
+    ],
+    "host_information": {
+      "name": "Alice Woods",
+      "contact": "+876543210",
+      "email": "alice@example.com"
+    },
+    "address": "789 Forest Path, Portland, OR",
+    "latitude": 45.5155,
+    "longitude": -122.6793,
+    "rooms": [
+      {
+        "hotel_slug": "forest-hideaway",
+        "room_slug": "cabin-suite",
+        "room_image": "https://example.com/hotel6/room1.jpg",
+        "room_title": "Cabin Suite",
+        "bedroom_count": 2
+      }
+    ]
+  },
+  {
+    "hotel_id": "h007",
+    "slug": "mountain-retreat11111111111111111",
+    "images": [
+      "https://example.com/hotel2/image1.jpg",
+      "https://example.com/hotel2/image2.jpg"
+    ],
+    "title": "Mountain Retreat",
+    "description": "Escape to tranquility with breathtaking mountain views and cozy accommodations.",
+    "guest_count": 6,
+    "bedroom_count": 3,
+    "bathroom_count": 2,
+    "amenities": [
+      "Free WiFi",
+      "Hot Tub",
+      "Fireplace",
+      "Pets Allowed"
+    ],
+    "host_information": {
+      "name": "Emily Green",
+      "contact": "+987654321",
+      "email": "emily@example.com"
+    },
+    "address": "456 Mountain Lane, Aspen, CO",
+    "latitude": 39.1911,
+    "longitude": -106.8175,
+    "rooms": [
+      {
+        "hotel_slug": "mountain-retreat",
+        "room_slug": "deluxe-cabin",
+        "room_image": "https://example.com/hotel2/room1.jpg",
+        "room_title": "Deluxe Cabin",
+        "bedroom_count": 2
+      },
+      {
+        "hotel_slug": "mountain-retreat",
+        "room_slug": "standard-room",
+        "room_image": "https://example.com/hotel2/room2.jpg",
+        "room_title": "Standard Room",
+        "bedroom_count": 1
+      }
+    ]
+  }
+]
