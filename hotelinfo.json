@@ -94,7 +94,8 @@
     "images": [
       "https://example.com/hotel3/image1.jpg",
       "https://example.com/hotel3/image2.jpg",
-      "/uploads/h003/1731403771965-891906561-Screenshot from 2024-11-04 18-53-42.png"
+      "/uploads/h003/1731403771965-891906561-Screenshot from 2024-11-04 18-53-42.png",
+      "/uploads/h003/1731403965486-4425429-Screenshot from 2024-11-04 18-53-42.png"
     ],
     "title": "Urban Oasis",
     "description": "A luxurious hotel in the heart of the city, offering modern amenities and stylish rooms.",
@@ -245,7 +246,8 @@
     "slug": "mountain-retreat11111111111111111",
     "images": [
       "https://example.com/hotel2/image1.jpg",
-      "https://example.com/hotel2/image2.jpg"
+      "https://example.com/hotel2/image2.jpg",
+      "/uploads/h007/1731407636807-813484991-Screenshot from 2024-11-04 18-53-42.png"
     ],
     "title": "Mountain Retreat",
     "description": "Escape to tranquility with breathtaking mountain views and cozy accommodations.",
@@ -322,6 +324,51 @@
         "room_slug": "standard-room",
         "room_image": "https://example.com/hotel2/room2.jpg",
         "room_title": "Standard Room",
+        "bedroom_count": 1
+      }
+    ]
+  },
+  {
+    "hotel_id": "h009",
+    "slug": "seaside-haven1111",
+    "images": [
+      "https://example.com/hotel1/image1.jpg",
+      "https://example.com/hotel1/image2.jpg",
+      "/uploads/h001/1731403013306-659167721-Screenshot from 2024-11-04 16-33-26.png",
+      "/uploads/h001/1731403126534-845063329-Screenshot from 2024-11-04 16-33-26.png"
+    ],
+    "title": "Seaside Haven",
+    "description": "A beautiful beachfront hotel with stunning views and modern amenities.",
+    "guest_count": 6,
+    "bedroom_count": 3,
+    "bathroom_count": 2,
+    "amenities": [
+      "Free WiFi",
+      "Pool",
+      "Air Conditioning",
+      "Breakfast Included"
+    ],
+    "host_information": {
+      "name": "John Doe",
+      "contact": "+123456789",
+      "email": "john@example.com"
+    },
+    "address": "123 Ocean Drive, Miami Beach, FL",
+    "latitude": 25.790654,
+    "longitude": -80.1300455,
+    "rooms": [
+      {
+        "hotel_slug": "seaside-haven",
+        "room_slug": "ocean-view-suite",
+        "room_image": "https://example.com/hotel1/room1.jpg",
+        "room_title": "Ocean View Suite",
+        "bedroom_count": 1
+      },
+      {
+        "hotel_slug": "seaside-haven",
+        "room_slug": "garden-view-room",
+        "room_image": "https://example.com/hotel1/room2.jpg",
+        "room_title": "Garden View Room",
         "bedroom_count": 1
       }
     ]

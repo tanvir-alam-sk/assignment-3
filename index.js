@@ -11,7 +11,6 @@ app.use(express.json());
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     const hotelId = req.body.hotel_id;
-    console.log(req.body.hotel_id)
     if (!hotelId) {
       return cb(new Error('hotel_id is required'));
     }
