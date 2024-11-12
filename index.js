@@ -10,32 +10,38 @@ app.use(express.json());
 // Set up storage for multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/"); // Directory to save images
+    const hotelId = req.body.hotel_id;
+    console.log(req.body.hotel_id)
+    if (!hotelId) {
+      return cb(new Error('hotel_id is required'));
+    }
+
+    const uploadDir = path.join(__dirname, 'uploads', hotelId);
+
+   // Create directory if it does not exist
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true }); 
+    }
+
+    cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + "-" + file.originalname);
-  },
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + '-' + file.originalname);
+  }
 });
 
-// Set up multer middleware to handle multiple image uploads
 const upload = multer({
   storage: storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // limit file size to 5MB per image
-}).array("images", 10); // allow up to 10 images per request
+  limits: { fileSize: 5 * 1024 * 1024 }, 
+}).array("images", 10); 
 
-// Your model or database method to update the hotel record (replace with your actual DB method)
 async function updateHotelImages(hotelId, imageUrls) {
-  // Simulate updating hotel record with image URLs in the database
-  // Replace this with actual database code
   console.log(`Hotel ${hotelId} updated with images:`, imageUrls);
 }
 
-// -------------------------------------     All API     -----------------------------------
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+
 
 // ---------------read and parse JSON file----------------------
 function readHotelsFile() {
@@ -47,6 +53,13 @@ function readHotelsFile() {
 function writeHotelsFile(data) {
   fs.writeFileSync("hotelinfo.json", JSON.stringify(data, null, 2), "utf8");
 }
+
+// -------------------------------------     All API     -----------------------------------
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
 
 //-------------------------------          Get All Hotels          -----------------------------
 app.get("/hotels", async (req, res) => {
@@ -61,7 +74,6 @@ app.post("/hotels", async (req, res) => {
   const newHotelData = await req.body;
   const hotelsData = await readHotelsFile();
 
-  // Check if hotel_id already exists
   if (hotelsData.some((hotel) => hotel.hotel_id === newHotelData.hotel_id)) {
     return res
       .status(400)
@@ -115,15 +127,13 @@ app.put("/hotels/:id", (req, res) => {
 // ----------------------         POST /images endpoint       ---------------------------------
 app.post("/images", async (req, res) => {
   upload(req, res, async (err) => {
+    const hotelId = req.body.hotel_id;
     if (err instanceof multer.MulterError) {
       return res.status(400).json({ error: err.message });
     } else if (err) {
       return res.status(500).json({ error: "Image upload failed" });
     }
 
-    // Assuming hotelId is sent as a parameter in the request body
-    const hotelId = req.body.hotel_id;
-    // Array of image URLs to save in the hotel record
     const imageUrls = req.files.map(
       (file) => `/uploads/${hotelId}/${file.filename}`
     );
@@ -135,7 +145,7 @@ app.post("/images", async (req, res) => {
       );
       imageUrls.map((imageUrl)=>hotels[hotelIndex].images.push(imageUrl))
       writeHotelsFile(hotels);
-      // Update hotel record with the image URLs
+
       await updateHotelImages(hotelId, imageUrls);
       res.status(200).json({
         message: "Images uploaded successfully",
@@ -147,14 +157,6 @@ app.post("/images", async (req, res) => {
   });
 });
 
-// res.json(
-//   {
-//     "message": "Images uploaded successfully",
-//     "imageUrls": [
-//       "/uploads/uniqueName1.jpg",
-//       "/uploads/uniqueName2.jpg"
-//     ]
-//   })
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // ----------------------  For Image----------------------------------

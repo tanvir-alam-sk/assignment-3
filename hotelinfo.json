@@ -5,7 +5,8 @@
     "images": [
       "https://example.com/hotel1/image1.jpg",
       "https://example.com/hotel1/image2.jpg",
-      "/uploads/h001/1731394415912-886182893-Screenshot from 2024-11-04 15-13-01.png"
+      "/uploads/h001/1731403013306-659167721-Screenshot from 2024-11-04 16-33-26.png",
+      "/uploads/h001/1731403126534-845063329-Screenshot from 2024-11-04 16-33-26.png"
     ],
     "title": "Seaside Haven",
     "description": "A beautiful beachfront hotel with stunning views and modern amenities.",
@@ -48,7 +49,8 @@
     "slug": "mountain-retreat",
     "images": [
       "https://example.com/hotel2/image1.jpg",
-      "https://example.com/hotel2/image2.jpg"
+      "https://example.com/hotel2/image2.jpg",
+      "/uploads/h002/1731403345906-456837545-Screenshot from 2024-11-04 18-53-42.png"
     ],
     "title": "Mountain Retreat",
     "description": "Escape to tranquility with breathtaking mountain views and cozy accommodations.",
@@ -91,7 +93,8 @@
     "slug": "urban-oasis",
     "images": [
       "https://example.com/hotel3/image1.jpg",
-      "https://example.com/hotel3/image2.jpg"
+      "https://example.com/hotel3/image2.jpg",
+      "/uploads/h003/1731403771965-891906561-Screenshot from 2024-11-04 18-53-42.png"
     ],
     "title": "Urban Oasis",
     "description": "A luxurious hotel in the heart of the city, offering modern amenities and stylish rooms.",

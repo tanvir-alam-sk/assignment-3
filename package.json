@@ -13,7 +13,9 @@
   "description": "",
   "dependencies": {
     "express": "^4.21.1",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "slug": "^10.0.0",
+    "slugger": "^1.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
