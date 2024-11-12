@@ -4,7 +4,8 @@
     "slug": "seaside-haven",
     "images": [
       "https://example.com/hotel1/image1.jpg",
-      "https://example.com/hotel1/image2.jpg"
+      "https://example.com/hotel1/image2.jpg",
+      "/uploads/h001/1731394415912-886182893-Screenshot from 2024-11-04 15-13-01.png"
     ],
     "title": "Seaside Haven",
     "description": "A beautiful beachfront hotel with stunning views and modern amenities.",
@@ -245,9 +246,52 @@
     ],
     "title": "Mountain Retreat",
     "description": "Escape to tranquility with breathtaking mountain views and cozy accommodations.",
-    "guest_count": 6,
-    "bedroom_count": 3,
-    "bathroom_count": 2,
+    "guest_count": 60000,
+    "bedroom_count": 30009,
+    "bathroom_count": 20000,
+    "amenities": [
+      "Free WiFi",
+      "Hot Tub",
+      "Fireplace",
+      "Pets Allowed"
+    ],
+    "host_information": {
+      "name": "Emily Green",
+      "contact": "+987654321",
+      "email": "emily@example.com"
+    },
+    "address": "456 Mountain Lane, Aspen, CO",
+    "latitude": 39.1911,
+    "longitude": -106.8175,
+    "rooms": [
+      {
+        "hotel_slug": "mountain-retreat",
+        "room_slug": "deluxe-cabin",
+        "room_image": "https://example.com/hotel2/room1.jpg",
+        "room_title": "Deluxe Cabin",
+        "bedroom_count": 2
+      },
+      {
+        "hotel_slug": "mountain-retreat",
+        "room_slug": "standard-room",
+        "room_image": "https://example.com/hotel2/room2.jpg",
+        "room_title": "Standard Room",
+        "bedroom_count": 1
+      }
+    ]
+  },
+  {
+    "hotel_id": "h008",
+    "slug": "mountain-retreat11111111111111111",
+    "images": [
+      "https://example.com/hotel2/image1.jpg",
+      "https://example.com/hotel2/image2.jpg"
+    ],
+    "title": "Mountain Retreat",
+    "description": "Escape to tranquility with breathtaking mountain views and cozy accommodations.",
+    "guest_count": 60000,
+    "bedroom_count": 30009,
+    "bathroom_count": 20000,
     "amenities": [
       "Free WiFi",
       "Hot Tub",
