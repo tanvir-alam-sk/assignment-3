@@ -1,24 +1,26 @@
 const express = require("express");
 const app = express();
 const fs = require("fs");
+const slugify = require('slugify')
 const multer = require("multer");
 const path = require("path");
-const slugify = require('slugify')
 const port = 8000;
+
 
 app.use(express.json());
 
 // Set up storage for multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const hotelId = req.body.hotel_id;
+    const hotelId = req.body.hotelId; // Assuming `hotelId` is passed in the request body
     if (!hotelId) {
-      return cb(new Error("hotel_id is required"));
+      return cb(new Error('hotelId is required'));
     }
 
-    const uploadDir = path.join(__dirname, "uploads", hotelId);
+    // Define the directory based on `hotelId`
+    const uploadDir = path.join(__dirname, 'uploads', hotelId);
 
-    // Create directory if it does not exist
+    // Ensure the directory exists
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
@@ -26,9 +28,9 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + "-" + file.originalname);
-  },
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + '-' + file.originalname); 
+  }
 });
 
 const upload = multer({
@@ -39,6 +41,12 @@ const upload = multer({
 async function updateHotelImages(hotelId, imageUrls) {
   console.log(`Hotel ${hotelId} updated with images:`, imageUrls);
 }
+
+// -------------------------------------     All API     -----------------------------------
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 // ---------------read and parse JSON file----------------------
 function readHotelsFile() {
@@ -51,14 +59,8 @@ function writeHotelsFile(data) {
   fs.writeFileSync("hotelinfo.json", JSON.stringify(data, null, 2), "utf8");
 }
 
-// -------------------------------------     All API     -----------------------------------
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
 //-------------------------------          Get All Hotels          -----------------------------
-app.get("/hotel", async (req, res) => {
+app.get("/hotels", async (req, res) => {
   let hotel = await readHotelsFile();
   return res
     .status(201)
@@ -66,72 +68,11 @@ app.get("/hotel", async (req, res) => {
 });
 
 //--------------                           Post A Hotel            -----------------------------
-app.post("/hotel", async (req, res) => {
+app.post("/hotels", async (req, res) => {
   const newHotelData = await req.body;
-
-  const {
-    hotel_id,
-    title,
-    images,
-    description,
-    guest_count,
-    bedroom_count,
-    bathroom_count,
-    amenities,
-    host_information,
-    address,
-    latitude,
-    longitude,
-    room_title,
-  } = newHotelData;
-  if (
-    !hotel_id ||
-    !title ||
-    !images ||
-    !description ||
-    !guest_count ||
-    !bedroom_count ||
-    !bathroom_count ||
-    !amenities ||
-    !host_information ||
-    !address ||
-    !latitude ||
-    !longitude ||
-    !room_title
-  ) {
-    return res
-      .status(400)
-      .json({
-        message:
-          "Requere all those fields hotel_id,title,images,description,guest_count,bedroom_count,bathroom_count,amenities,host_information,address,latitude,longitude,room_title",
-      });
-  }
-
-  const newewHotelDataWithSlag={
-    hotel_id,
-    slug:slugify(title),
-    images,
-    description,
-    guest_count,
-    bedroom_count,
-    bathroom_count,
-    host_information,
-    address,
-    latitude,
-    longitude,
-    rooms:[{
-      hotel_slug: slugify(title),
-        room_slug: slugify(room_title),
-        room_image: "https://example.com/hotel2/room2.jpg",
-        room_title:room_title,
-        bedroom_count
-    }]
-  }
-
-
-  console.log(slugify(newHotelData?.title,{lower: true,strict: true}))
   const hotelsData = await readHotelsFile();
 
+  // Check if hotel_id already exists
   if (hotelsData.some((hotel) => hotel.hotel_id === newHotelData.hotel_id)) {
     return res
       .status(400)
@@ -147,7 +88,7 @@ app.post("/hotel", async (req, res) => {
 });
 
 //--------------                        Get specific Hotel        ----------------------------------
-app.get("/hotel/:id", async (req, res) => {
+app.get("/hotels/:id", async (req, res) => {
   hotels = await readHotelsFile();
   let existHotel = hotels.find((hotel) => hotel.hotel_id == req.params.id);
   if (existHotel) {
@@ -160,7 +101,7 @@ app.get("/hotel/:id", async (req, res) => {
 });
 
 //-----------------------------        Put specific Hotel        ----------------------------------
-app.put("/hotel/:id", (req, res) => {
+app.put("/hotels/:id", (req, res) => {
   const hotelUpdateData = req.body;
   let hotels = readHotelsFile();
   const hotelIndex = hotels.findIndex(
@@ -185,23 +126,27 @@ app.put("/hotel/:id", (req, res) => {
 // ----------------------         POST /images endpoint       ---------------------------------
 app.post("/images", async (req, res) => {
   upload(req, res, async (err) => {
-    const hotelId = req.body.hotel_id;
     if (err instanceof multer.MulterError) {
       return res.status(400).json({ error: err.message });
     } else if (err) {
       return res.status(500).json({ error: "Image upload failed" });
     }
 
+    // Assuming hotelId is sent as a parameter in the request body
+    const hotelId = req.body.hotel_id;
+    // Array of image URLs to save in the hotel record
     const imageUrls = req.files.map(
       (file) => `/uploads/${hotelId}/${file.filename}`
     );
 
     try {
       let hotels = readHotelsFile();
-      const hotelIndex = hotels.findIndex((hotel) => hotel.hotel_id == hotelId);
-      imageUrls.map((imageUrl) => hotels[hotelIndex].images.push(imageUrl));
+      const hotelIndex = hotels.findIndex(
+        (hotel) => hotel.hotel_id == hotelId
+      );
+      imageUrls.map((imageUrl)=>hotels[hotelIndex].images.push(imageUrl))
       writeHotelsFile(hotels);
-
+      // Update hotel record with the image URLs
       await updateHotelImages(hotelId, imageUrls);
       res.status(200).json({
         message: "Images uploaded successfully",
@@ -212,8 +157,6 @@ app.post("/images", async (req, res) => {
     }
   });
 });
-
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // ----------------------  For Image----------------------------------
 
